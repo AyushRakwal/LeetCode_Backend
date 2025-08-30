@@ -18,7 +18,7 @@ export class ProblemService implements IProblemService {
 
     private problemRepository: IProblemRepository;
 
-    constructor(problemRepository: IProblemRepository) { 
+    constructor(problemRepository: IProblemRepository) { // constructor based dependency injection
         this.problemRepository = problemRepository;
         console.log("ProblemService constructor called");
     }

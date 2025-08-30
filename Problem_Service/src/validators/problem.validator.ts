@@ -28,4 +28,3 @@ export const findByDifficultySchema = z.object({
 
 export type CreateProblemDto = z.infer<typeof createProblemSchema>;
 export type UpdateProblemDto = z.infer<typeof updateProblemSchema>;
-export type FindByDifficultyDto = z.infer<typeof findByDifficultySchema>;
