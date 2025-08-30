@@ -1,3 +1,4 @@
+// This file contains all the basic configuration logic for the app server to work
 import dotenv from 'dotenv';
 
 type ServerConfig = {
