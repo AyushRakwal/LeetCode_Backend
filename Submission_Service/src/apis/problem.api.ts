@@ -7,7 +7,6 @@ export interface ITestcase {
     input: string;
     output: string;
 }
-
 export interface IProblemDetails {
     id: string;
     title: string;
@@ -28,14 +27,16 @@ export interface IProlemReponse {
 export async function getProblemById(problemId: string): Promise<IProblemDetails | null> {
     try {
         const url = `${serverConfig.PROBLEM_SERVICE}/problems/${problemId}`;
-        logger.info(`Fetching problem details from ${url}`);
-        const response: AxiosResponse<IProlemReponse> =  await axios.get(url);
-        
-        if(response.data.success) {
-            return response.data.data;
-        }
+        logger.info("Getting problem by ID", { url });
+        // TODO: Improve the axios api error handling
+        const response: AxiosResponse<IProlemReponse> = 
+         await axios.get(url);
 
-        throw new InternalServerError("Failed to get problem details");
+         if(response.data.success) {
+            return response.data.data;
+         }
+
+         throw new InternalServerError("Failed to get problem details");
     } catch(error) {
         logger.error(`Failed to get problem details: ${error}`);
         return null;
