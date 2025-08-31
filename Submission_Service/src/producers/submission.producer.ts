@@ -14,7 +14,9 @@ export interface ISubmissionJob {
 export async function addSubmissionJob(data: ISubmissionJob) : Promise<string | null>{
     try {
         const job = await submissionQueue.add("evaluate-submission", data);
+
         logger.info(`Submission job added: ${job.id}`);
+
         return job.id || null;
     } catch(error) {
         logger.error(`Failed to add submission job: ${error}`);

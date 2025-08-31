@@ -1,3 +1,4 @@
+// This file contains all the basic configuration logic for the app server to work
 import dotenv from 'dotenv';
 
 type ServerConfig = {
@@ -14,7 +15,7 @@ function loadEnv() {
 loadEnv();
 
 export const serverConfig: ServerConfig = {
-    PORT: Number(process.env.PORT) || 3000,
-    DB_URL: process.env.DB_URL || 'mongodb://localhost:27017/myapp',
-    PROBLEM_SERVICE: process.env.PROBLEM_SERVICE || 'http://localhost:3001/api/v1'
+    PORT: Number(process.env.PORT) || 3001,
+    DB_URL: process.env.DB_URL || "mongodb://localhost:27017/mydatabase",
+    PROBLEM_SERVICE: process.env.PROBLEM_SERVICE || "http://localhost:3000/api/v1"
 };
